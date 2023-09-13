@@ -10,18 +10,18 @@ export const APICall = () => {
     const fetchToDO = async () => {
       const data = await fetch("https://jsonplaceholder.typicode.com/todos/1");
       const result = await data.json();
-      return setData(result);
+      return result;
     };
 
     // call the function
     fetchToDO()
       // make sure to catch any error
       .catch(console.error);
-  }, []);
+  }, [setData]);
   return (
     <>
       <h2>useEffect</h2>
-      <p>Data: {data}</p>
+      <p>{data}</p>
     </>
   );
 };
